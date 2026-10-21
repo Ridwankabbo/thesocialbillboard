@@ -1,0 +1,10 @@
+# Celery Run Command
+
+redis-cli ping
+
+celery -A projects worker -l info -P solo / celery -A projects worker --loglevel=info --pool=solo
+
+celery -A projects beat --loglevel=info
+
+
+stripe listen --forward-to localhost:8000/api/webhook/stripe/
